@@ -39,3 +39,32 @@ def solve(self, root, k):
             if curr.right:
                 if curr.right.val == k and curr.left:
                     return curr.left.val
+
+# Recursive
+
+
+def solve(self, root, k):
+
+    ans = 0
+
+    def preOrder(root, k):
+
+        nonlocal ans
+
+        if root.left is None or root.right is None:
+            return
+
+        elif root.left.val == k:
+            ans = root.right.val
+            return
+
+        elif root.right.val == k:
+            ans = root.left.val
+            return
+
+        preOrder(root.left, k)
+        preOrder(root.right, k)
+
+    preOrder(root, k)
+
+    return ans
