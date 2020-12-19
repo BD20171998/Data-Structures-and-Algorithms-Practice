@@ -28,5 +28,5 @@ df.index += 1
 df['word_value'] = df[0].apply(lambda row: str_value(row))
 df['pos_value'] = df.index
 df['total_value'] = df.apply(
-    lambda row: row['word_value'] + row['pos_value'], axis=1)
+    lambda row: row['word_value'] * row['pos_value'], axis=1)
 print(df['total_value'].sum())
